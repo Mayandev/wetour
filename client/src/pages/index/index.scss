@@ -1,0 +1,189 @@
+@import "~taro-ui/dist/style/components/flex.scss";
+@import "~taro-ui/dist/style/components/rate.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+
+.head {
+  position: relative;
+  height: 400rpx;
+
+  .thumbnail-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .thumbnail-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.5;
+    background: #000000;
+  }
+
+  .desc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    margin-top: 100rpx;
+  }
+
+  .city-ch {
+    font-size: 50rpx;
+  }
+
+  .city-en {
+    font-size: 30rpx;
+  }
+  .weather {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    color: #fff;
+    text-align: right;
+    font-size: 30rpx;
+    line-height: 100px;
+    margin-right: 30rpx;
+  }
+
+}
+
+.menu-container {
+  height: 200rpx;
+
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-icon {
+    height: 100rpx;
+    width: 100rpx;
+  }
+
+  .menu-txt {
+    margin-top: 10rpx;
+    font-size: 26rpx;
+    color: #666;
+  }
+
+
+}
+
+.list-container {
+
+  .divider {
+    height: 10rpx;
+    width: 100%;
+    background-color: #f1f1f1;
+  }
+
+  .list-header {
+
+    .header-title {
+      width: 20%;
+      margin: 30rpx;
+      color: #969ea5;
+      font-weight: 700;
+
+    }
+    .more {
+      color: #5293b3;
+      margin: 30rpx;
+      width: 100rpx;
+    }
+
+  }
+
+  .list-item {
+
+    border-bottom: 1px solid #eeeeee;
+
+    .scene-img {
+      width: 250rpx;
+      height: 200rpx;
+      border-radius:5rpx;
+      margin: 20rpx 30rpx;
+    }
+
+    .scene-desc {
+      margin: 20rpx 0rpx;
+
+      .rate {
+        font-size: 25rpx;
+        color: #e6ac42;
+        margin-top: 20rpx;
+      }
+
+      .scene-title {
+        color: #333;
+        font-size: 40rpx;
+        font-weight: 700;
+        width: 400rpx;
+      }
+
+      .region {
+        color: #888;
+        font-size: 25rpx;
+        margin-top: 20rpx;
+      }
+
+    }
+
+
+  }
+
+
+
+}
+.mask{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 9999;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  /* height: 80%; */
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+}
+
+.auth-img {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.tips {
+  color: #888;
+  font-size: 25rpx;
+  margin-top: 30rpx;
+}
+
+.auth-btn {
+  background-color: #08c261;
+  color: #fff;
+  border-radius: 50rpx;
+  width: 500rpx;
+  margin-top: 50rpx;
+}

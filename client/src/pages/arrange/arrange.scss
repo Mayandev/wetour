@@ -1,0 +1,80 @@
+@import "~taro-ui/dist/style/components/fab.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+@import "~taro-ui/dist/style/components/modal.scss";
+@import "~taro-ui/dist/style/components/flex.scss";
+.tips {
+  color: #666;
+  text-align: center;
+}
+
+.thumbnail {
+  width: 100%;
+}
+
+.fab-btn {
+  position: fixed;
+  right: 40rpx;
+  z-index: 9999999;
+  bottom: 60rpx;
+}
+
+.at-fab {
+  background-color: #2D8CF0;
+}
+
+
+
+.arrange-container {
+  padding: 20rpx 30rpx;
+}
+
+
+.arrange-item {
+  
+  margin-top: 20rpx;
+  position: relative;
+  border-radius: 10rpx;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,.03);
+
+  .thumbnail-img {
+    display: block;
+    width: 100%;
+  border-radius: 10rpx;
+  height: 200rpx;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,.03);
+
+  }
+
+  .thumbnail-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.5;
+    border-radius: 10rpx;
+    background: #000;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,.03);
+
+  }
+
+  .desc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    height: 200rpx;
+    line-height: 200px;
+    font-size: 30rpx;
+    font-weight: 600;
+  }
+}
+
+.form-item {
+  height: 100rpx;
+  color: #666;
+  font-size: 30rpx;
+}

@@ -1,0 +1,160 @@
+@import "~taro-ui/dist/style/components/flex.scss";
+@import "~taro-ui/dist/style/components/rate.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+
+page {
+  background-color: #EFF3F6;
+}
+
+.head {
+
+
+  .thumbnail-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .desc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    color: #fff;
+    margin-top: 180rpx;
+    margin-left: 40rpx;
+  }
+
+  .scene-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    margin-top: 495rpx;
+    margin-left: 83rpx;
+    width: 154rpx;
+    height: 212rpx;
+
+    image {
+      border-radius: 10rpx;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 340rpx;
+    margin-top: 458rpx;
+    margin-right: 49rpx;
+    letter-spacing: 26rpx;
+    color: #888;
+  }
+
+  .address {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 35rpx;
+    font-weight: 600;
+    margin-top: 600rpx;
+    margin-right: 75rpx;
+    color: #666;
+  }
+
+  .tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 25rpx;
+    margin-top: 670rpx;
+    margin-right: 75rpx;
+    background-color: #f9f5f1;
+    color: #bd9e6b;
+    padding: 5rpx 15rpx;
+    border-radius: 5rpx;
+  }
+}
+
+.share-container {
+  margin: 30rpx 40rpx;
+  width: 100%;
+  .share-txt {
+    color: #444;
+  }
+
+  .share-item {
+    background-color: #fff;
+    padding: 10rpx;
+    border-radius: 30rpx;
+    font-size: 30rpx;
+    color: #666;
+    margin-right: 20rpx;
+    width: 150rpx;
+
+    .share-icon {
+      width: 30rpx;
+      height: 30rpx;
+      margin-right: 10rpx;
+    }
+  
+  }
+}
+
+.return-btn-container {
+  width: 100%;
+  margin: 20rpx 0rpx;
+  .return-btn {
+    border-radius: 50rpx;
+    background-color: #2D8CF0;
+    color: #fff;
+    text-align: center;
+    width: 80%;
+    padding: 20rpx;
+  }
+
+}
+
+
+.comment-container {
+  padding: 30rpx;
+}
+.comment {
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+}
+
+.comment-avatar {
+  border-radius: 50%;
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.comment-username {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.comment-date {
+  font-size: 25rpx;
+  color: #888;
+}
+
+.commet-txt {
+  background-color: #f9f9f9;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.comment-user {
+  margin-left: 20rpx;
+
+}

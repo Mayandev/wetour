@@ -1,0 +1,218 @@
+@import "~taro-ui/dist/style/components/flex.scss";
+@import "~taro-ui/dist/style/components/rate.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+@import "~taro-ui/dist/style/components/article.scss";
+
+
+.head-swiper {
+  width: 100%;
+  height: 400rpx;
+}
+
+.head-img {
+  width: 100%;
+  height: 400rpx;
+}
+
+.content-container {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    border-radius:40rpx 40rpx 0px 0px;
+    background-color: #ffffff;
+    width: 100%;
+    height: 200rpx;
+    z-index: 999;
+  }
+
+  .title {
+    color: #333;
+    font-size: 40rpx;
+    font-weight: 700;
+    width: 400rpx;
+  }
+
+  .title-container {
+    border-right: 1px solid #eee;
+  }
+
+  .brief {
+    margin-top: 10rpx;
+    color: #888;
+    font-size: 20rpx;
+  }
+
+  .divider {
+    border-bottom: 1px solid #eee;
+    height: 3rpx;
+    width: 95%;
+  }
+
+  .divider2x {
+    border-bottom: 15px solid #eee;
+    width: 100%;
+  }
+
+  .rate-txt {
+    text-align: center;
+    font-size: 40rpx;
+    font-weight: 700;
+    color: #ffca3e;
+  }
+
+  .menu-container {
+    height: 100rpx;
+
+    .menu {
+      margin-left: 20rpx;
+    }
+
+
+    .menu-link {
+      margin-right: 20rpx;
+      color: #888;
+    }
+
+    .menu-title {
+      margin-left: 40rpx;
+    }
+  }
+
+  .intro-container {
+    padding: 20rpx;
+  }
+
+  .intro-title {
+    color: #333;
+    font-size: 35rpx;
+    font-weight: 700;
+  }
+
+  .intro-detail {
+    color: #888;
+    font-size: 25rpx;
+    margin-top: 20rpx;
+  }
+
+  /* 超出3行隐藏多余部分并且显示省略号 */
+.txt-hidden{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.readmore-tip {
+  color: #196a99;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+
+}
+
+.scrollview {
+  white-space: nowrap; 
+  width: 100%;
+}
+
+.scrollview-item {
+  height: 200rpx;
+  width: 300rpx;
+  display: inline-block;
+  margin: 20rpx 20rpx 20rpx 0;
+
+  image {
+    height: 100%;
+    width: 100%;
+    border-radius: 10rpx;
+
+  }
+}
+
+.table-row {
+  height: 80rpx;
+
+  .table-title {
+    color: #888;
+    font-size: 25rpx;
+  }
+
+  
+
+  .table-content {
+    font-size: 25rpx;
+    border-bottom: 1px solid #eee;
+    padding: 10rpx;
+  }
+}
+
+.operation-container {
+  position: fixed;
+  bottom: 0;
+  left: 0%;
+  z-index: 99999999;
+  width: 100%;
+
+  .operation {
+    width: 40%;
+    background-color: #c2d7eb;
+    color: #4365bb;
+    border-radius: 50rpx;
+    padding: 20rpx 30rpx;
+    opacity: 0.9;
+    margin-bottom: 50rpx;
+  }
+
+  .operation-txt {
+    margin-left: 10rpx;
+  }
+
+  
+
+  .operation-item {
+    padding: 0rpx 10rpx;
+  }
+}
+
+.comment {
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.comment-avatar {
+  border-radius: 50%;
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.comment-username {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.comment-date {
+  font-size: 25rpx;
+  color: #888;
+}
+
+.commet-txt {
+  background-color: #f9f9f9;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.comment-user {
+  margin-left: 20rpx;
+
+}

@@ -1,0 +1,37 @@
+@import "~taro-ui/dist/style/components/flex.scss";
+@import "~taro-ui/dist/style/components/rate.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+
+.thumbnail {
+  width: 100%;
+}
+
+page {
+  background-color: #f9f9f9;
+}
+
+.rate-txt {
+  text-align: center;
+  color: #ffca3e;
+  font-weight: 700;
+  font-size: 30rpx;
+}
+
+.return-btn-container {
+  width: 100%;
+  margin: 50rpx 0rpx;
+  .return-btn {
+    border-radius: 50rpx;
+    background-color: #2D8CF0;
+    color: #fff;
+    text-align: center;
+    padding: 20rpx;
+    width: 80%;
+  }
+
+}
+
+
+.rate {
+  margin: 30rpx 0rpx;
+}
