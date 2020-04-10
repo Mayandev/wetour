@@ -1,5 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Image} from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
+import { NavBar } from '../../components/navbar/navbar'
 
 import thumbnail from '../../assets/markup_list_headimg.png';
 
@@ -23,18 +24,18 @@ export default class Index extends Component {
     markList: []
   }
   openMap() {
-    Taro.navigateTo({url: '/pages/map/map'})
+    Taro.navigateTo({ url: '/pages/map/map' })
   };
   openRange() {
-    Taro.navigateTo({url: '/pages/arrange/arrange'})
+    Taro.navigateTo({ url: '/pages/arrange/arrange' })
   };
 
 
-  componentWillMount () {
+  componentWillMount() {
     Taro.showLoading({
       title: '加载中...'
     })
-    const {sceneId} = this.$router.params;
+    const { sceneId } = this.$router.params;
     Taro.cloud.callFunction({
       name: 'markList',
     }).then(res => {
@@ -44,30 +45,30 @@ export default class Index extends Component {
         markList: res.result.data
       })
     });
-    
+
   }
 
-  componentDidMount () { }
+  componentDidMount() { }
 
-  componentWillUnmount () { }
+  componentWillUnmount() { }
 
-  componentDidShow () {
-    
+  componentDidShow() {
+
   }
 
-  componentDidHide () { }
+  componentDidHide() { }
 
 
-  openDetail(id)  {
-    Taro.navigateTo({url:`/pages/detail/detail?id=${id}`})
+  openDetail(id) {
+    Taro.navigateTo({ url: `/pages/detail/detail?id=${id}` })
   }
 
   openMarkup(id) {
-    Taro.navigateTo({url: `/pages/markup/markup?sceneId=${id}`})
+    Taro.navigateTo({ url: `/pages/markup/markup?sceneId=${id}` })
   }
 
   buildList() {
-    let {markList} = this.state;
+    let { markList } = this.state;
     let content;
     if (markList.length === 0) {
       content = (
@@ -75,23 +76,23 @@ export default class Index extends Component {
           暂无打卡数据～
         </View>
       )
-      
+
     } else {
-      content = 
+      content =
         markList.map(item => {
           return (
             <View onClick={this.openMarkup.bind(this, item.sceneId)} className="list-item at-row at-row__align--center at-row__justify--around">
-             <View className="at-row at-row__align--center list-header">
+              <View className="at-row at-row__align--center list-header">
                 <Image src={item.sceneImage} className="list-img"></Image>
                 <View className="list-title">{item.sceneName}</View>
-             </View>
+              </View>
               <View className="list-info at-row at-row__align--center">
                 <View className="list-date">{item.date}</View>
                 <View className="at-icon at-icon-chevron-right"></View>
               </View>
             </View>
           )
-        })      
+        })
     }
 
     return (
@@ -101,9 +102,11 @@ export default class Index extends Component {
     );
   }
 
-  render () {
+  render() {
     return (
       <View className='container'>
+        <NavBar></NavBar>
+
         <Image src={thumbnail} className="thumbnail" mode="widthFix"></Image>
         {this.buildList()}
       </View>

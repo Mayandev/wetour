@@ -1,6 +1,7 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Map} from '@tarojs/components'
 import { set as setGlobalData, get as getGlobalData } from '../../../global_data';
+import { NavBar } from '../../../components/navbar/navbar'
 
 
 
@@ -28,7 +29,7 @@ export default class Index extends Component {
   }
   onCalloutTap(e) {
     console.log(e);
-    let id = e.detail.markerId;
+    let id = e.markerId;
     Taro.navigateTo({url: `/pages/detail/detail?id=${id}`})
   }
 
@@ -114,6 +115,7 @@ export default class Index extends Component {
     const {polygon, latitude, longitude} = this.state;
     return (
       <View className='container'>
+        <NavBar></NavBar>
         <Map className="map" scale={12} longitude={longitude} latitude={latitude} onCalloutTap={this.onCalloutTap.bind(this)} markers={markers}  polyline={polygon}/>
       </View>
     )

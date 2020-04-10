@@ -1,7 +1,9 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Image, Textarea} from '@tarojs/components'
+import { View, Image, Textarea } from '@tarojs/components'
 
 import { AtRate } from 'taro-ui'
+import { NavBar } from '../../components/navbar/navbar'
+
 
 import thumbnail from '../../assets/comment_headimg.png';
 import wechat from '../../assets/icon_wechat.png';
@@ -25,33 +27,33 @@ export default class Index extends Component {
   }
 
   state = {
-      rate: 0,
-      sceneId: 0
+    rate: 0,
+    sceneId: 0
   }
   openMap() {
-    Taro.navigateTo({url: '/pages/map/map'})
+    Taro.navigateTo({ url: '/pages/map/map' })
   };
   openRange() {
-    Taro.navigateTo({url: '/pages/arrange/arrange'})
+    Taro.navigateTo({ url: '/pages/arrange/arrange' })
   };
 
 
-  componentWillMount () {
-    
+  componentWillMount() {
+
   }
 
-  componentDidMount () { }
+  componentDidMount() { }
 
-  componentWillUnmount () { }
+  componentWillUnmount() { }
 
-  componentDidShow () {
-    const {sceneId} = this.$router.params;
-    this.setState({sceneId})
+  componentDidShow() {
+    const { sceneId } = this.$router.params;
+    this.setState({ sceneId })
     console.log(sceneId);
-    
-   }
 
-  componentDidHide () { }
+  }
+
+  componentDidHide() { }
 
 
   onTextareaBlur(e) {
@@ -61,24 +63,24 @@ export default class Index extends Component {
   }
 
   handleRateChange(e) {
-    this.setState({rate: e})
+    this.setState({ rate: e })
   }
 
   addComment() {
-    const {comment, rate, sceneId} = this.state;
+    const { comment, rate, sceneId } = this.state;
     const userInfo = Taro.getStorageSync('userInfo');
     console.log(userInfo);
     Taro.showLoading({
       title: '提交中...'
     })
     if (!comment || rate === 0) {
-      Taro.showToast({title: '请输入评价并打分', icon: 'none'});
+      Taro.showToast({ title: '请输入评价并打分', icon: 'none' });
       return;
     } else {
       Taro.cloud.callFunction({
         name: 'commentAdd',
         data: {
-          sceneId: sceneId*1,
+          sceneId: sceneId * 1,
           comment: comment,
           rate: rate,
           userInfo: userInfo
@@ -114,35 +116,35 @@ export default class Index extends Component {
         <View className="return-btn-container at-row at-row__justify--center">
           <View onClick={this.addComment.bind(this)} className="return-btn">发表评价</View>
         </View>
-     </View>
-      
+      </View>
+
     );
   }
 
   buildRate() {
-    const {rate} = this.state;
+    const { rate } = this.state;
     let rateText;
     switch (rate) {
       case 1:
-        rateText="很差"
+        rateText = "很差"
         break;
       case 2:
-        rateText="较差"
+        rateText = "较差"
         break;
       case 3:
-        rateText="还行"
+        rateText = "还行"
         break;
       case 4:
-        rateText="推荐"
+        rateText = "推荐"
         break;
       case 5:
-        rateText="力荐"
+        rateText = "力荐"
         break;
       default:
-        rateText=''
+        rateText = ''
         break;
     }
-    
+
     return (
       <View>
         <View className="rate-txt">{rateText}</View>
@@ -159,9 +161,10 @@ export default class Index extends Component {
 
 
 
-  render () {
+  render() {
     return (
       <View className='container'>
+        <NavBar></NavBar>
         {this.buildHeader()}
         {this.buildRate()}
         {this.buildComment()}

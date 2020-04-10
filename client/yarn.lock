@@ -185,10 +185,10 @@
     node-sass "^4.12.0"
     scss-bundle "^2.5.1"
 
-"@tarojs/plugin-uglifyjs@1.3.18":
-  version "1.3.18"
-  resolved "https://registry.npm.taobao.org/@tarojs/plugin-uglifyjs/download/@tarojs/plugin-uglifyjs-1.3.18.tgz#725d6b852a92333176e63bd4e409feb462b13092"
-  integrity sha1-cl1rhSqSMzF25jvU5An+tGKxMJI=
+"@tarojs/plugin-uglifyjs@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/@tarojs/plugin-uglifyjs/download/@tarojs/plugin-uglifyjs-2.1.0.tgz?cache=0&sync_timestamp=1585556916667&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Fplugin-uglifyjs%2Fdownload%2F%40tarojs%2Fplugin-uglifyjs-2.1.0.tgz#c24e015f650b99f42f55254dcb6b90beaea4b846"
+  integrity sha1-wk4BX2ULmfQvVSVNy2uQvq6kuEY=
   dependencies:
     uglify-js "^3.3.24"
 
@@ -245,13 +245,13 @@
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
-"@tarojs/taro-weapp@^1.3.21":
-  version "1.3.21"
-  resolved "https://registry.npm.taobao.org/@tarojs/taro-weapp/download/@tarojs/taro-weapp-1.3.21.tgz#e162010ce15d4b21e0debe60017196e7c5476408"
-  integrity sha1-4WIBDOFdSyHg3r5gAXGW58VHZAg=
+"@tarojs/taro-weapp@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/@tarojs/taro-weapp/download/@tarojs/taro-weapp-2.1.0.tgz?cache=0&sync_timestamp=1585556967981&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Ftaro-weapp%2Fdownload%2F%40tarojs%2Ftaro-weapp-2.1.0.tgz#3ebb4a24d33cd6d0e8805cc7471227f846f33170"
+  integrity sha1-PrtKJNM81tDogFzHRxIn+EbzMXA=
   dependencies:
-    "@tarojs/taro" "1.3.21"
-    "@tarojs/utils" "1.3.21"
+    "@tarojs/taro" "2.1.0"
+    "@tarojs/utils" "2.1.0"
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
@@ -262,22 +262,22 @@
   dependencies:
     "@tarojs/utils" "1.3.18"
 
-"@tarojs/taro@1.3.21":
-  version "1.3.21"
-  resolved "https://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-1.3.21.tgz#c69c5b6466e09412261ea83d10e5563f72c77902"
-  integrity sha1-xpxbZGbglBImHqg9EOVWP3LHeQI=
+"@tarojs/taro@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-2.1.0.tgz?cache=0&sync_timestamp=1585654507457&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Ftaro%2Fdownload%2F%40tarojs%2Ftaro-2.1.0.tgz#0e07d1a6298a46cb9f0c9d10c4d05be5b4ef8892"
+  integrity sha1-DgfRpimKRsufDJ0QxNBb5bTviJI=
   dependencies:
-    "@tarojs/utils" "1.3.21"
+    "@tarojs/utils" "2.1.0"
 
 "@tarojs/utils@1.3.18":
   version "1.3.18"
   resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-1.3.18.tgz#094e61bd27839a699e766e546291508ba8dd742d"
   integrity sha1-CU5hvSeDmmmedm5UYpFQi6jddC0=
 
-"@tarojs/utils@1.3.21":
-  version "1.3.21"
-  resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-1.3.21.tgz#56b5820a14ffd70c4e0b2364799e26f10392b889"
-  integrity sha1-VrWCChT/1wxOCyNkeZ4m8QOSuIk=
+"@tarojs/utils@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-2.1.0.tgz?cache=0&sync_timestamp=1585556909759&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Futils%2Fdownload%2F%40tarojs%2Futils-2.1.0.tgz#7e7527937f0b5a0d51a3bc82d4c8a2d73c01897b"
+  integrity sha1-fnUnk38LWg1Ro7yC1Mii1zwBiXs=
 
 "@tarojs/webpack-runner@1.3.18":
   version "1.3.18"
@@ -4939,7 +4939,7 @@ long@^4.0.0:
   resolved "https://registry.npm.taobao.org/long/download/long-4.0.0.tgz?cache=0&sync_timestamp=1566600663917&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flong%2Fdownload%2Flong-4.0.0.tgz#9a7b71cfb7d361a194ea555241c92f7468d5bf28"
   integrity sha1-mntxz7fTYaGU6lVSQckvdGjVvyg=
 
-loose-envify@^1.0.0, loose-envify@^1.4.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npm.taobao.org/loose-envify/download/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=
@@ -6398,6 +6398,15 @@ react-is@^16.8.1:
   version "16.11.0"
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.11.0.tgz#b85dfecd48ad1ce469ff558a882ca8e8313928fa"
   integrity sha1-uF3+zUitHORp/1WKiCyo6DE5KPo=
+
+react@^16.13.1:
+  version "16.13.1"
+  resolved "https://registry.npm.taobao.org/react/download/react-16.13.1.tgz?cache=0&sync_timestamp=1585595008776&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact%2Fdownload%2Freact-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
+  integrity sha1-LoGIIvGpdDEiwGPWQQ2FweOv5I4=
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"

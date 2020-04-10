@@ -87,6 +87,14 @@ page {
     color: #444;
   }
 
+  button {
+    position: static;
+    line-height: 0;
+    padding: 10px;
+    border: none;
+    margin-left: 0px;
+  }
+
   .share-item {
     background-color: #fff;
     padding: 10rpx;

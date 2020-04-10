@@ -1,5 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Map} from '@tarojs/components'
+import { View, Map } from '@tarojs/components'
+import { NavBar } from '../../components/navbar/navbar'
 
 
 
@@ -22,42 +23,45 @@ export default class Index extends Component {
     latitude: 0,
     longitude: 0,
     markers: []
- 
+
   }
   onCalloutTap(e) {
     console.log(e);
-    let id = e.detail.markerId;
-    Taro.navigateTo({url: `/pages/detail/detail?id=${id}`})
+    let id = e.markerId;
+    Taro.navigateTo({ url: `/pages/detail/detail?id=${id}` })
   }
 
 
-  componentWillMount () { 
+  componentWillMount() {
     Taro.getLocation({
-      
+
     }).then(res => {
       console.log(res);
-      let {latitude, longitude}  = res;
-      this.setState({latitude, longitude});
+      let { latitude, longitude } = res;
+      this.setState({ latitude, longitude });
     });
   }
 
-  componentDidMount () { }
+  componentDidMount() { }
 
-  componentWillUnmount () { }
+  componentWillUnmount() { }
 
-  componentDidShow () { 
+  componentDidShow() {
     Taro.cloud.callFunction({
       name: 'scene',
+      data: {
+        name: ''
+      }
     }).then(res => {
       console.log(res);
       let sceneList = res.result.data;
       let markers = [];
       sceneList.map((item, index) => {
         let marker = {
-          id: item.id, 
-          latitude: item.latitude, 
-          longitude: item.longitude, 
-          callout: {content: item.name, padding: 10, display: 'ALWAYS', textAlign: 'center'}
+          id: item.id,
+          latitude: item.latitude,
+          longitude: item.longitude,
+          callout: { content: item.name, padding: 10, display: 'ALWAYS', textAlign: 'center' }
         }
         markers.push(marker);
       })
@@ -67,21 +71,23 @@ export default class Index extends Component {
     })
   }
 
-  componentDidHide () { }
+  componentDidHide() { }
 
 
-  openDetail(id: number)  {
+  openDetail(id: number) {
   }
 
 
 
 
 
-  render () {
-    const {markers, latitude, longitude} = this.state;
+  render() {
+    const { markers, latitude, longitude } = this.state;
     return (
       <View className='container'>
-        <Map className="map" scale={12} longitude={longitude} latitude={latitude} onCalloutTap={this.onCalloutTap.bind(this)}  markers={markers}/>
+        <NavBar></NavBar>
+
+        <Map className="map" scale={12} longitude={longitude} latitude={latitude} onCalloutTap={this.onCalloutTap.bind(this)} markers={markers} />
       </View>
     )
   }

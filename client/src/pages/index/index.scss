@@ -1,6 +1,8 @@
 @import "~taro-ui/dist/style/components/flex.scss";
 @import "~taro-ui/dist/style/components/rate.scss";
 @import "~taro-ui/dist/style/components/icon.scss";
+@import "~taro-ui/dist/style/components/search-bar.scss";
+@import "~taro-ui/dist/style/components/button.scss";
 
 .head {
   position: relative;
@@ -187,3 +189,4 @@
   width: 500rpx;
   margin-top: 50rpx;
 }
+

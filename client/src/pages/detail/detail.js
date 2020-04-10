@@ -1,6 +1,7 @@
 import Taro, { Component, Config, requirePlugin } from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components'
 import { AtRate } from 'taro-ui'
+import { NavBar } from '../../components/navbar/navbar'
 
 let key = 'KC5BZ-FFO34-72WUZ-XMABB-AFL6J-TOFXG';  //使用在腾讯位置服务申请的key
 let referer = 'wetour-小程序端';   //调用插件的app的名称
@@ -41,67 +42,64 @@ export default class Detail extends Component {
       'latitude': 30.559510138609127,
       'longitude': 114.30707507848044
     });
-    Taro.navigateTo({url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint})
+    Taro.navigateTo({ url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint })
   }
 
 
   componentWillMount() {
+  }
+
+  componentDidMount() {
     
-    let {id: sceneId} = this.$router.params;
-    this.setState({sceneId})
+  }
+
+  componentWillUnmount() { }
+
+  componentDidShow() {
+    console.log('didMount');
+    Taro.showLoading();
+    let { id: sceneId } = this.$router.params;
     let userId = 3;
     Taro.cloud.callFunction({
       name: 'sceneDetail',
       data: {
-        id: sceneId*1
+        id: sceneId * 1
       }
     }).then(res => {
-      console.log(res);
-      
+      console.log('detail',res);
       this.setState({
         sceneDetail: res.result.data[0]
       });
       Taro.cloud.callFunction({
         name: 'isMark',
         data: {
-          sceneId: sceneId*1,
+          sceneId: sceneId * 1,
         }
       }).then(res => {
         console.log(res);
+        Taro.hideLoading()
         let data = res.result;
         if (data.length != 0) {
-          this.setState({isMark: true})
+          this.setState({ isMark: true })
         }
       });
-      
+
     })
-  
-    
-   }
-
-  componentDidMount() {
-
-   }
-
-  componentWillUnmount() { }
-
-  componentDidShow() {
-    const {sceneId} = this.state;
     Taro.cloud.callFunction({
       name: 'comment',
       data: {
-        sceneId: sceneId*1,
+        sceneId: sceneId * 1,
         operation: 0
       }
     }).then(res => {
-      console.log('comment',res);
-      this.setState({commentList: res.result})
+      console.log('comment', res);
+      this.setState({ commentList: res.result })
     });
   }
 
   componentDidHide() { }
 
-  
+
   onPageScroll(e) {
     // let {margin, scrollTop} = this.state;
     // console.log(e);
@@ -117,12 +115,12 @@ export default class Detail extends Component {
     //   }
     // }
     // this.setState({margin, scrollTop: e.scrollTop})
-    
+
   }
 
   openMarkup() {
     let date = new Date();
-    const {isMark, sceneDetail} = this.state;
+    const { isMark, sceneDetail } = this.state;
     if (isMark) {
       Taro.showToast({
         title: '你已经打过卡了',
@@ -144,46 +142,46 @@ export default class Detail extends Component {
           data: {
             sceneId: sceneDetail.id,
             date: date,
-            rank: res.result.total+1,
+            rank: res.result.total + 1,
             sceneImage: sceneDetail.head_image,
             sceneName: sceneDetail.name
           }
         }).then(res => {
           Taro.hideLoading();
-          Taro.navigateTo({url: `/pages/markup/markup?sceneId=${sceneDetail.id}`})
+          Taro.navigateTo({ url: `/pages/markup/markup?sceneId=${sceneDetail.id}` })
         })
       });
-      
+
     }
   }
 
   buildHeader() {
-    const {sceneDetail} = this.state;
+    const { sceneDetail } = this.state;
     return (
-        <Swiper
-          className='head-swiper'
-          circular
-          style="z-index: -999">
-          {sceneDetail.images.map((image, index) => {
-            return (
-              <SwiperItem key={index}>
-                <Image className="head-img" src={image}></Image>
-              </SwiperItem>
-            )
-          })}
-        </Swiper>
+      <Swiper
+        className='head-swiper'
+        circular
+        style="z-index: -999">
+        {sceneDetail.images.map((image, index) => {
+          return (
+            <SwiperItem key={index}>
+              <Image className="head-img" src={image}></Image>
+            </SwiperItem>
+          )
+        })}
+      </Swiper>
     );
   }
 
   openPhoneCall(phone) {
-    Taro.makePhoneCall({phoneNumber: phone});
+    Taro.makePhoneCall({ phoneNumber: phone });
   }
 
 
 
 
   buildContent() {
-    let {margin, sceneDetail, readmore, brief, commentList} = this.state;
+    let { margin, sceneDetail, readmore, brief, commentList } = this.state;
     let subIntro = sceneDetail.introduction ? sceneDetail.introduction.substring(0, 20) + '...' : '加载中';
     return (
       <View className="content-container" style={`margin-top: -${margin}px`}>
@@ -202,7 +200,7 @@ export default class Detail extends Component {
           </View>
         </View>
         <View className="divider"></View>
-        <View  onClick={this.openRoutePlan.bind(this, sceneDetail.address)} className="menu-container at-row at-row__align--center at-row__justify--between">
+        <View onClick={this.openRoutePlan.bind(this, sceneDetail.address)} className="menu-container at-row at-row__align--center at-row__justify--between">
           <View className="menu at-row  at-col-9 at-row__align--center at-row__justify--start">
             <View className="at-icon at-icon-map-pin"></View>
             <View className="menu-title">{sceneDetail.address}</View>
@@ -245,8 +243,8 @@ export default class Detail extends Component {
           >
             {sceneDetail.images.map((image, index) => {
               return (
-                <View className="scrollview-item"  key={index}>
-                  <Image  src={image}></Image>
+                <View className="scrollview-item" key={index}>
+                  <Image src={image}></Image>
                 </View>
               )
             })}
@@ -305,7 +303,7 @@ export default class Detail extends Component {
   }
 
   buildOperation() {
-    const {isMark} = this.state;
+    const { isMark } = this.state;
     return (
       <View className="operation-container at-row at-row__align--center at-row__justify--center">
         <View className="operation at-row at-row__align--center at-row__justify--center">
@@ -319,19 +317,20 @@ export default class Detail extends Component {
   }
 
   toggle() {
-    const {readmore} = this.state;
-    this.setState({readmore: !readmore});
+    const { readmore } = this.state;
+    this.setState({ readmore: !readmore });
     return;
   }
 
   render() {
     return (
       <View className='container'>
+        <NavBar></NavBar>
         {this.buildHeader()}
         {this.buildContent()}
         {this.buildOperation()}
       </View>
     )
   }
-  
+
 }

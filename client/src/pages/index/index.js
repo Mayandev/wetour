@@ -1,6 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Image, Text, Button } from '@tarojs/components'
-import { AtRate } from 'taro-ui'
+import { View, Image, Text, Button, Input } from '@tarojs/components'
+import { AtRate, AtIcon, AtSearchBar } from 'taro-ui'
 
 import thumbnail from '../../assets/thumbnail.jpg';
 import auth_image from '../../assets/icon_wechat_auth.png';
@@ -27,6 +27,9 @@ export default class Index extends Component {
   state = {
     sceneList: [],
     showModal: false,
+    temperature: 0,
+    condTxt: '-',
+    inputTxt: ''
   }
   openMap() {
     Taro.navigateTo({ url: '/pages/map/map' })
@@ -50,21 +53,23 @@ export default class Index extends Component {
       })
       return;
     }
-    Taro.navigateTo({url: '/pages/markup-list/markup-list'})
+    Taro.navigateTo({ url: '/pages/markup-list/markup-list' })
   }
 
 
   componentWillMount() {
     this.login();
-
   }
 
-  componentDidMount() {
+  requestSceneList(name='') {
     Taro.showLoading({
       title: '加载中...'
     })
     Taro.cloud.callFunction({
       name: 'scene',
+      data: {
+        name: name
+      }
     }).then(res => {
       console.log(res);
       Taro.hideLoading();
@@ -74,14 +79,31 @@ export default class Index extends Component {
     })
   }
 
-  componentWillUnmount() {}
+  componentDidMount() {
+    this.requestSceneList();
+    // 请求天气
+    Taro.request({
+      url: 'https://free-api.heweather.net/s6/weather/now?location=zhangjiakou&key=7dc2a35ee71d4793ae2683a8ac8cff33',
+    }).then(res => {
+      console.log(res);
+      let conditon = res.data.HeWeather6[0].now;
+      console.log(conditon);
+      this.setState({
+        condTxt: conditon.cond_txt,
+        temperature: conditon.tmp
+      })
+    })
 
-  componentDidShow() {
-    
   }
 
-  componentDidHide() { 
-    
+  componentWillUnmount() { }
+
+  componentDidShow() {
+
+  }
+
+  componentDidHide() {
+
   }
 
 
@@ -111,15 +133,15 @@ export default class Index extends Component {
         },
       }).then(res => {
         console.log(res);
-          Taro.setStorageSync('userInfo', res.result);
-          this.setState({
-            showModal: false
-          });
-          Taro.showToast({
-            title: '登录成功'
-          })
+        Taro.setStorageSync('userInfo', res.result);
+        this.setState({
+          showModal: false
+        });
+        Taro.showToast({
+          title: '登录成功'
         })
-      
+      })
+
     }
   }
 
@@ -134,17 +156,32 @@ export default class Index extends Component {
     }).catch(console.log)
   }
 
+  // 搜索确认
+  onActionClick() {
+    const {inputTxt} = this.state;
+    // 跳转到搜索界面
+    this.requestSceneList(inputTxt);
+  }
+
+  onSearchChange(res) {
+    // 获取输入值
+    this.setState({
+      inputTxt: res
+    })
+  }
+
   buildHeader() {
+    const { temperature, condTxt } = this.state;
     return (
       <View className="head">
         <Image className="thumbnail-img" src={thumbnail} mode="aspectFill"></Image>
         <View className="thumbnail-mask"></View>
         <View className="desc">
-          <View className="city-ch">武汉</View>
-          <View className="city-en">Wuhan</View>
+          <View className="city-ch">张家口</View>
+          <View className="city-en">Zhangjiakou</View>
         </View>
         <View className="weather">
-          <Text>13°C ～ 15°C</Text>
+          <Text>{temperature}°C {condTxt}</Text>
         </View>
       </View>
     )
@@ -177,6 +214,17 @@ export default class Index extends Component {
     )
   }
 
+  buildSearch() {
+    // const {value} = this.state.value;
+    return (
+      <AtSearchBar
+        value={this.state.value}
+        onActionClick={this.onActionClick.bind(this)}
+        onChange={this.onSearchChange.bind(this)}
+      />
+    );
+  }
+
   buildSceneList() {
     const { sceneList } = this.state;
     return (
@@ -184,10 +232,9 @@ export default class Index extends Component {
         <View className="divider"></View>
         <View className="list-header at-row at-row__align--center at-row__justify--between">
           <View className="header-title">景点推荐</View>
-          <View className="more at-row at-row__align--center at-row__justify--center">
-            <View>更多</View>
+          {/* <View className="more at-row at-row__align--center at-row__justify--center">
             <View className="at-icon at-icon-chevron-right"></View>
-          </View>
+          </View> */}
         </View>
         <View className="list">
           {
@@ -229,7 +276,7 @@ export default class Index extends Component {
   }
 
   render() {
-    const {showModal} = this.state;
+    const { showModal } = this.state;
     let modalView;
     if (showModal) {
       modalView = this.buildModal();
@@ -239,6 +286,7 @@ export default class Index extends Component {
     return (
       <View className='container'>
         {this.buildHeader()}
+        {this.buildSearch()}
         {this.buildMenu()}
         {this.buildSceneList()}
         {modalView}

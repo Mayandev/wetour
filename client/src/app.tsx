@@ -38,7 +38,7 @@ class App extends Component {
     },
     plugins: {
       routePlan: {
-        version: "1.0.3",
+        version: "1.0.5",
         provider: "wx50b5593e81dd937a"
       }
     },
