@@ -113,9 +113,6 @@ export default class Index extends Component {
     )
   }
 
-  share() {
-
-  }
 
   buildShare() {
     return (
