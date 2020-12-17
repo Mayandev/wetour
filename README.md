@@ -37,25 +37,15 @@
 
 3、将 data 文件夹中对应的数据导入到集合中，剩下的数据则在小程序界面操作即可。
 
-### 安装依赖
-
-本项目使用 Taro 框架，需要先安装 Taro。
-
-```bask
-# 使用 npm 安装 CLI
-$ npm install -g @tarojs/cli
-# OR 使用 yarn 安装 CLI
-$ yarn global add @tarojs/cli
-# OR 安装了 cnpm，使用 cnpm 安装 CLI
-$ cnpm install -g @tarojs/cli
-```
-
-运行项目
+### 运行项目
 
 ```bash
 $ git clone https://github.com/Mayandev/wetour.git
 $ cd wetour/client
-$ taro build --type weapp
+$ npm install
+$ npm run dev:weapp
+$ # 打包
+$ npm run build:weapp
 ```
 
 ## 最后
