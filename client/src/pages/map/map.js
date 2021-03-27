@@ -1,6 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Map } from '@tarojs/components'
-import { NavBar } from '../../components/navbar/navbar'
+import NavBar from '../../components/navbar/navbar'
 
 
 

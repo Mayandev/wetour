@@ -1,6 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
-import { NavBar } from '../../components/navbar/navbar'
+import NavBar from '../../components/navbar/navbar'
 
 import thumbnail from '../../assets/markup_list_headimg.png';
 

@@ -1,7 +1,7 @@
 import Taro, { Component, Config, requirePlugin } from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components'
 import { AtRate } from 'taro-ui'
-import { NavBar } from '../../components/navbar/navbar'
+import NavBar from '../../components/navbar/navbar'
 
 let key = 'KC5BZ-FFO34-72WUZ-XMABB-AFL6J-TOFXG';  //使用在腾讯位置服务申请的key
 let referer = 'wetour-小程序端';   //调用插件的app的名称

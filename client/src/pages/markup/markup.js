@@ -1,7 +1,7 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Image, Button } from '@tarojs/components'
 import { AtRate } from 'taro-ui'
-import { NavBar } from '../../components/navbar/navbar'
+import NavBar from '../../components/navbar/navbar'
 
 
 import thumbnail from '../../assets/markup_headimg.png';

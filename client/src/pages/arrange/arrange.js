@@ -4,7 +4,7 @@ import { AtFab, AtIcon, AtModal, AtModalHeader, AtModalAction, AtModalContent } 
 import thumbnail1 from '../../assets/thumbnail.jpg';
 import thumbnail from '../../assets/arrange_headimg.png';
 import { set as setGlobalData, get as getGlobalData } from '../../global_data';
-import { NavBar } from '../../components/navbar/navbar'
+import NavBar from '../../components/navbar/navbar'
 
 
 

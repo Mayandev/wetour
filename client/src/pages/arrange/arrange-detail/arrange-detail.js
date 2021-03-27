@@ -1,7 +1,7 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Map} from '@tarojs/components'
 import { set as setGlobalData, get as getGlobalData } from '../../../global_data';
-import { NavBar } from '../../../components/navbar/navbar'
+import NavBar from '../../../components/navbar/navbar'
 
 
 
