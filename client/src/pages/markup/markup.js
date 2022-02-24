@@ -1,19 +1,16 @@
-import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Image, Button } from '@tarojs/components'
-import { AtRate } from 'taro-ui'
-import NavBar from '../../components/navbar/navbar'
-
+import Taro, { Component, Config } from '@tarojs/taro';
+import { View, Image, Button } from '@tarojs/components';
+import { AtRate } from 'taro-ui';
+import NavBar from '../../components/navbar/navbar';
 
 import thumbnail from '../../assets/markup_headimg.png';
 import wechat from '../../assets/icon_wechat.png';
 import weibo from '../../assets/icon_weibo.png';
 import moment from '../../assets/icon_moment.png';
 
-
-import './markup.scss'
+import './markup.scss';
 
 export default class Index extends Component {
-
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -22,8 +19,8 @@ export default class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: 'WeTour'
-  }
+    navigationBarTitleText: 'WeTour',
+  };
 
   state = {
     markInfo: {},
@@ -33,60 +30,66 @@ export default class Index extends Component {
     image: 'http://img1.bytravel.cn/720/7204/w400869508.jpg',
     tag: '武汉追寻红色文化之旅',
     sceneId: 0,
-    comment: null
-  }
+    comment: null,
+  };
   openMap() {
-    Taro.navigateTo({ url: '/pages/map/map' })
-  };
+    Taro.navigateTo({ url: '/pages/map/map' });
+  }
   openRange() {
-    Taro.navigateTo({ url: '/pages/arrange/arrange' })
-  };
-
-
-  componentWillMount() {
-
+    Taro.navigateTo({ url: '/pages/arrange/arrange' });
   }
 
-  componentDidMount() { }
+  componentWillMount() {}
 
-  componentWillUnmount() { }
+  componentDidMount() {}
+
+  componentWillUnmount() {}
 
   componentDidShow() {
     const { sceneId } = this.$router.params;
     Taro.showLoading({
-      title: '加载中...'
-    })
-    Taro.cloud.callFunction({
-      name: 'isMark',
-      data: {
-        sceneId: sceneId * 1,
-      }
-    }).then(res => {
-      console.log(res);
-      let data = res.result[0];
-      Taro.hideLoading();
-      this.setState({
-        markInfo: data,
-        sceneId: sceneId
+      title: '加载中...',
+    });
+    Taro.cloud
+      .callFunction({
+        name: 'mark',
+        data: {
+          $url: 'isMark',
+          sceneData: {
+            sceneId: sceneId * 1,
+          },
+        },
       })
-    });
-    Taro.cloud.callFunction({
-      name: 'comment',
-      data: {
-        sceneId: sceneId * 1,
-        operation: 1
-      }
-    }).then(res => {
-      console.log('comment', res);
-      this.setState({ comment: res.result[0] })
-    });
+      .then(res => {
+        console.log(res);
+        let data = res.result[0];
+        Taro.hideLoading();
+        this.setState({
+          markInfo: data,
+          sceneId: sceneId,
+        });
+      });
+    Taro.cloud
+      .callFunction({
+        name: 'comment',
+        data: {
+          $url: 'list',
+          queryData: {
+            sceneId: sceneId * 1,
+            operation: 1,
+          },
+        },
+      })
+      .then(res => {
+        console.log('comment', res);
+        this.setState({ comment: res.result[0] });
+      });
   }
 
-  componentDidHide() { }
-
+  componentDidHide() {}
 
   openDetail(id: number) {
-    Taro.navigateTo({ url: `/pages/detail/detail?id=${id}` })
+    Taro.navigateTo({ url: `/pages/detail/detail?id=${id}` });
   }
 
   buildHeader() {
@@ -97,22 +100,15 @@ export default class Index extends Component {
         <View className="desc">
           <View>{`你是第 ${markInfo.rank} 位打卡${markInfo.sceneName}的人`}</View>
         </View>
-        <View className="date">
-          {markInfo.date}
-        </View>
-        <View className="address">
-          {`${markInfo.sceneName}`}
-        </View>
+        <View className="date">{markInfo.date}</View>
+        <View className="address">{`${markInfo.sceneName}`}</View>
         <View className="scene-image">
           <Image src={markInfo.sceneImage}></Image>
         </View>
-        <View className="tag">
-          {tag}
-        </View>
+        <View className="tag">{tag}</View>
       </View>
-    )
+    );
   }
-
 
   buildShare() {
     return (
@@ -126,7 +122,6 @@ export default class Index extends Component {
           <Image src={moment} className="share-icon"></Image>
           <View className="">朋友圈</View>
         </Button>
-       
       </View>
     );
   }
@@ -139,7 +134,7 @@ export default class Index extends Component {
         <View onClick={this.openComment.bind(this)} className="return-btn-container at-row at-row__justify--center">
           <View className="return-btn">去评价</View>
         </View>
-      )
+      );
     } else {
       content = (
         <View className="comment-container">
@@ -154,32 +149,27 @@ export default class Index extends Component {
                 </View>
               </View>
             </View>
-            <View className="commet-txt">
-              {comment.comment}
-            </View>
+            <View className="commet-txt">{comment.comment}</View>
           </View>
-        </View>)
+        </View>
+      );
     }
-    return (
-      <View>
-        {content}
-      </View>
-    )
+    return <View>{content}</View>;
   }
 
   openComment() {
     const { sceneId } = this.state;
-    Taro.navigateTo({ url: `/pages/comment/comment?sceneId=${sceneId}` })
+    Taro.navigateTo({ url: `/pages/comment/comment?sceneId=${sceneId}` });
   }
 
   render() {
     return (
-      <View className='container'>
+      <View className="container">
         <NavBar></NavBar>
         {this.buildHeader()}
         {this.buildShare()}
         {this.buildComment()}
       </View>
-    )
+    );
   }
 }

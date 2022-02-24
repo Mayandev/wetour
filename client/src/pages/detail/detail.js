@@ -1,15 +1,14 @@
-import Taro, { Component, Config, requirePlugin } from '@tarojs/taro'
-import { View, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components'
-import { AtRate } from 'taro-ui'
-import NavBar from '../../components/navbar/navbar'
+import Taro, { Component, Config, requirePlugin } from '@tarojs/taro';
+import { View, Swiper, SwiperItem, Image, ScrollView } from '@tarojs/components';
+import { AtRate } from 'taro-ui';
+import NavBar from '../../components/navbar/navbar';
 
-let key = 'KC5BZ-FFO34-72WUZ-XMABB-AFL6J-TOFXG';  //使用在腾讯位置服务申请的key
-let referer = 'wetour-小程序端';   //调用插件的app的名称
+let key = 'KC5BZ-FFO34-72WUZ-XMABB-AFL6J-TOFXG'; //使用在腾讯位置服务申请的key
+let referer = 'wetour-小程序端'; //调用插件的app的名称
 
-import './detail.scss'
+import './detail.scss';
 
 export default class Detail extends Component {
-
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -21,8 +20,8 @@ export default class Detail extends Component {
     navigationBarTitleText: '',
     navigationBarBackgroundColor: '#fff',
     backgroundTextStyle: 'dark',
-    navigationBarTextStyle: 'white'
-  }
+    navigationBarTextStyle: 'white',
+  };
 
   state = {
     sceneDetail: {},
@@ -32,73 +31,79 @@ export default class Detail extends Component {
     brief: '典藏武汉红色文化，展示先辈革命风采',
     isMark: false,
     sceneId: 0,
-    commentList: []
-  }
-
+    commentList: [],
+  };
 
   openRoutePlan(address) {
-    let endPoint = JSON.stringify({  //终点
-      'name': address,
-      'latitude': 30.559510138609127,
-      'longitude': 114.30707507848044
+    let endPoint = JSON.stringify({
+      //终点
+      name: address,
+      latitude: 30.559510138609127,
+      longitude: 114.30707507848044,
     });
-    Taro.navigateTo({ url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint })
+    Taro.navigateTo({ url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint });
   }
 
+  componentWillMount() {}
 
-  componentWillMount() {
-  }
+  componentDidMount() {}
 
-  componentDidMount() {
-    
-  }
-
-  componentWillUnmount() { }
+  componentWillUnmount() {}
 
   componentDidShow() {
     console.log('didMount');
     Taro.showLoading();
     let { id: sceneId } = this.$router.params;
     let userId = 3;
-    Taro.cloud.callFunction({
-      name: 'sceneDetail',
-      data: {
-        id: sceneId * 1
-      }
-    }).then(res => {
-      console.log('detail',res);
-      this.setState({
-        sceneDetail: res.result.data[0]
-      });
-      Taro.cloud.callFunction({
-        name: 'isMark',
+    Taro.cloud
+      .callFunction({
+        name: 'sceneDetail',
         data: {
-          sceneId: sceneId * 1,
-        }
-      }).then(res => {
-        console.log(res);
-        Taro.hideLoading()
-        let data = res.result;
-        if (data.length != 0) {
-          this.setState({ isMark: true })
-        }
+          id: sceneId * 1,
+        },
+      })
+      .then(res => {
+        console.log('detail', res);
+        this.setState({
+          sceneDetail: res.result.data[0],
+        });
+        Taro.cloud
+          .callFunction({
+            name: 'mark',
+            data: {
+              $url: 'isMark',
+              sceneData: {
+                sceneId: sceneId * 1,
+              },
+            },
+          })
+          .then(res => {
+            console.log(res);
+            Taro.hideLoading();
+            let data = res.result;
+            if (data.length != 0) {
+              this.setState({ isMark: true });
+            }
+          });
       });
-
-    })
-    Taro.cloud.callFunction({
-      name: 'comment',
-      data: {
-        sceneId: sceneId * 1,
-        operation: 0
-      }
-    }).then(res => {
-      console.log('comment', res);
-      this.setState({ commentList: res.result })
-    });
+    Taro.cloud
+      .callFunction({
+        name: 'comment',
+        data: {
+          $url: 'list',
+          queryData: {
+            sceneId: sceneId * 1,
+            operation: 0,
+          },
+        },
+      })
+      .then(res => {
+        console.log('comment', res);
+        this.setState({ commentList: res.result });
+      });
   }
 
-  componentDidHide() { }
-
+  componentDidHide() {}
 
   onPageScroll(e) {
     // let {margin, scrollTop} = this.state;
@@ -115,7 +120,6 @@ export default class Detail extends Component {
     //   }
     // }
     // this.setState({margin, scrollTop: e.scrollTop})
-
   }
 
   openMarkup() {
@@ -124,50 +128,56 @@ export default class Detail extends Component {
     if (isMark) {
       Taro.showToast({
         title: '你已经打过卡了',
-        icon: 'none'
-      })
+        icon: 'none',
+      });
     } else {
       Taro.showLoading({
-        title: '加载中...'
-      })
+        title: '加载中...',
+      });
       // 查询打卡排名
-      Taro.cloud.callFunction({
-        name: 'markRank',
-        data: {
-          sceneId: sceneDetail.id,
-        }
-      }).then(res => {
-        Taro.cloud.callFunction({
+      Taro.cloud
+        .callFunction({
           name: 'mark',
           data: {
-            sceneId: sceneDetail.id,
-            date: date,
-            rank: res.result.total + 1,
-            sceneImage: sceneDetail.head_image,
-            sceneName: sceneDetail.name
-          }
-        }).then(res => {
-          Taro.hideLoading();
-          Taro.navigateTo({ url: `/pages/markup/markup?sceneId=${sceneDetail.id}` })
+            $url: 'rank',
+            sceneData: {
+              sceneId: sceneDetail.id,
+            },
+          },
         })
-      });
-
+        .then(res => {
+          Taro.cloud
+            .callFunction({
+              name: 'mark',
+              data: {
+                $url: 'mark',
+                sceneData: {
+                  sceneId: sceneDetail.id,
+                  date: date,
+                  rank: res.result.total + 1,
+                  sceneImage: sceneDetail.head_image,
+                  sceneName: sceneDetail.name,
+                },
+              },
+            })
+            .then(res => {
+              Taro.hideLoading();
+              Taro.navigateTo({ url: `/pages/markup/markup?sceneId=${sceneDetail.id}` });
+            });
+        });
     }
   }
 
   buildHeader() {
     const { sceneDetail } = this.state;
     return (
-      <Swiper
-        className='head-swiper'
-        circular
-        style="z-index: -999">
+      <Swiper className="head-swiper" circular style="z-index: -999">
         {sceneDetail.images.map((image, index) => {
           return (
             <SwiperItem key={index}>
               <Image className="head-img" src={image}></Image>
             </SwiperItem>
-          )
+          );
         })}
       </Swiper>
     );
@@ -177,9 +187,6 @@ export default class Detail extends Component {
     Taro.makePhoneCall({ phoneNumber: phone });
   }
 
-
-
-
   buildContent() {
     let { margin, sceneDetail, readmore, brief, commentList } = this.state;
     let subIntro = sceneDetail.introduction ? sceneDetail.introduction.substring(0, 20) + '...' : '加载中';
@@ -187,12 +194,8 @@ export default class Detail extends Component {
       <View className="content-container" style={`margin-top: -${margin}px`}>
         <View className="content at-row at-row__align--center at-row__justify--around ">
           <View className="at-col at-col-7 title-container">
-            <View className="title">
-              {sceneDetail.name}
-            </View>
-            <View className="brief">
-              {brief}
-            </View>
+            <View className="title">{sceneDetail.name}</View>
+            <View className="brief">{brief}</View>
           </View>
           <View className="at-col at-col-3  rate">
             <View className="rate-txt">{sceneDetail.score}</View>
@@ -200,7 +203,10 @@ export default class Detail extends Component {
           </View>
         </View>
         <View className="divider"></View>
-        <View onClick={this.openRoutePlan.bind(this, sceneDetail.address)} className="menu-container at-row at-row__align--center at-row__justify--between">
+        <View
+          onClick={this.openRoutePlan.bind(this, sceneDetail.address)}
+          className="menu-container at-row at-row__align--center at-row__justify--between"
+        >
           <View className="menu at-row  at-col-9 at-row__align--center at-row__justify--start">
             <View className="at-icon at-icon-map-pin"></View>
             <View className="menu-title">{sceneDetail.address}</View>
@@ -211,7 +217,10 @@ export default class Detail extends Component {
           </View>
         </View>
         <View className="divider"></View>
-        <View onClick={this.openPhoneCall.bind(this, sceneDetail.phone)} className="menu-container at-row at-row__align--center at-row__justify--between">
+        <View
+          onClick={this.openPhoneCall.bind(this, sceneDetail.phone)}
+          className="menu-container at-row at-row__align--center at-row__justify--between"
+        >
           <View className="menu at-row  at-col-9 at-row__align--center at-row__justify--start">
             <View className="at-icon at-icon-phone"></View>
             <View className="menu-title">{sceneDetail.phone}</View>
@@ -223,38 +232,28 @@ export default class Detail extends Component {
         </View>
         <View className="divider2x"></View>
         <View className="intro-container">
-          <View className="intro-title ">
-            景点介绍
+          <View className="intro-title ">景点介绍</View>
+          <View className="intro-detail">{readmore ? sceneDetail.introduction : subIntro}</View>
+          <View className="readmore-tip" onClick={this.toggle.bind(this)}>
+            {readmore ? '收起' : '显示更多'}
           </View>
-          <View className="intro-detail" >
-            {readmore ? sceneDetail.introduction : subIntro}
-          </View>
-          <View className='readmore-tip' onClick={this.toggle.bind(this)}>{readmore ? '收起' : '显示更多'}</View>
         </View>
         <View className="divider2x"></View>
         <View className="intro-container">
-          <View className="intro-title ">
-            风景图片
-          </View>
-          <ScrollView
-            className='scrollview'
-            scrollX
-            scrollWithAnimation
-          >
+          <View className="intro-title ">风景图片</View>
+          <ScrollView className="scrollview" scrollX scrollWithAnimation>
             {sceneDetail.images.map((image, index) => {
               return (
                 <View className="scrollview-item" key={index}>
                   <Image src={image}></Image>
                 </View>
-              )
+              );
             })}
           </ScrollView>
         </View>
         <View className="divider2x"></View>
         <View className="intro-container">
-          <View className="intro-title">
-            景点信息
-          </View>
+          <View className="intro-title">景点信息</View>
           <View>
             <View className="at-row table-row at-row__align--center">
               <View className="table-title at-col at-col-2">优待政策</View>
@@ -272,9 +271,7 @@ export default class Detail extends Component {
         </View>
         <View className="divider2x"></View>
         <View className="intro-container">
-          <View className="intro-title">
-            用户评价
-          </View>
+          <View className="intro-title">用户评价</View>
           <View>
             {commentList.map(comment => {
               return (
@@ -289,13 +286,10 @@ export default class Detail extends Component {
                       </View>
                     </View>
                   </View>
-                  <View className="commet-txt">
-                    {comment.comment}
-                  </View>
+                  <View className="commet-txt">{comment.comment}</View>
                 </View>
-              )
+              );
             })}
-
           </View>
         </View>
       </View>
@@ -307,7 +301,10 @@ export default class Detail extends Component {
     return (
       <View className="operation-container at-row at-row__align--center at-row__justify--center">
         <View className="operation at-row at-row__align--center at-row__justify--center">
-          <View onClick={this.openMarkup.bind(this)} className="operation-item  scene-check at-row at-row__align--center at-row__justify--center">
+          <View
+            onClick={this.openMarkup.bind(this)}
+            className="operation-item  scene-check at-row at-row__align--center at-row__justify--center"
+          >
             <View className="at-icon at-icon-check-circle"></View>
             <View className="operation-txt">{isMark ? '已打卡' : '景点打卡'}</View>
           </View>
@@ -324,13 +321,12 @@ export default class Detail extends Component {
 
   render() {
     return (
-      <View className='container'>
+      <View className="container">
         <NavBar></NavBar>
         {this.buildHeader()}
         {this.buildContent()}
         {this.buildOperation()}
       </View>
-    )
+    );
   }
-
 }

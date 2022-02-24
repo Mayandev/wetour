@@ -37,7 +37,10 @@ export default class Index extends Component {
     })
     const { sceneId } = this.$router.params;
     Taro.cloud.callFunction({
-      name: 'markList',
+      name: 'mark',
+      data: {
+        $url: 'list'
+      }
     }).then(res => {
       console.log(res);
       Taro.hideLoading();
