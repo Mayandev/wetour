@@ -245,13 +245,13 @@
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
-"@tarojs/taro-weapp@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/@tarojs/taro-weapp/download/@tarojs/taro-weapp-2.1.0.tgz?cache=0&sync_timestamp=1585556967981&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Ftaro-weapp%2Fdownload%2F%40tarojs%2Ftaro-weapp-2.1.0.tgz#3ebb4a24d33cd6d0e8805cc7471227f846f33170"
-  integrity sha1-PrtKJNM81tDogFzHRxIn+EbzMXA=
+"@tarojs/taro-weapp@^2.2.10":
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-weapp/-/taro-weapp-2.2.10.tgz#4eea6bac5e6d3e0aedf39f480a40aecf5db35304"
+  integrity sha512-SPteyZmIYX+K9m7MSgpIT84tvo6SoEd68FoEBX03diHktWS0/GShx1ORx4xMsJLM9uw6rjNoIynpLIZVf077Ig==
   dependencies:
-    "@tarojs/taro" "2.1.0"
-    "@tarojs/utils" "2.1.0"
+    "@tarojs/taro" "^2.2.10"
+    "@tarojs/utils" "^2.2.10"
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
@@ -262,22 +262,27 @@
   dependencies:
     "@tarojs/utils" "1.3.18"
 
-"@tarojs/taro@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-2.1.0.tgz?cache=0&sync_timestamp=1585654507457&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Ftaro%2Fdownload%2F%40tarojs%2Ftaro-2.1.0.tgz#0e07d1a6298a46cb9f0c9d10c4d05be5b4ef8892"
-  integrity sha1-DgfRpimKRsufDJ0QxNBb5bTviJI=
+"@tarojs/taro@^2.2.10":
+  version "2.2.17"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro/-/taro-2.2.17.tgz#78a95dc4e91ab4e4580205464ae684f32b612fa4"
+  integrity sha512-Mw41xfoPFwFcePkGXAxkH7J+2yWEViLUeM5Y3MvEjmPi+MWLQK5eMf+YLXKEf2GJ8pxf7H9GYr0FLG7s8qowJw==
   dependencies:
-    "@tarojs/utils" "2.1.0"
+    "@tarojs/utils" "2.2.17"
 
 "@tarojs/utils@1.3.18":
   version "1.3.18"
   resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-1.3.18.tgz#094e61bd27839a699e766e546291508ba8dd742d"
   integrity sha1-CU5hvSeDmmmedm5UYpFQi6jddC0=
 
-"@tarojs/utils@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-2.1.0.tgz?cache=0&sync_timestamp=1585556909759&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Futils%2Fdownload%2F%40tarojs%2Futils-2.1.0.tgz#7e7527937f0b5a0d51a3bc82d4c8a2d73c01897b"
-  integrity sha1-fnUnk38LWg1Ro7yC1Mii1zwBiXs=
+"@tarojs/utils@2.2.17":
+  version "2.2.17"
+  resolved "https://registry.yarnpkg.com/@tarojs/utils/-/utils-2.2.17.tgz#d6e4b808e3d7f984e8e5671a33e6f02ad2042651"
+  integrity sha512-QMCcvicXKwEiF6+K5lwdF98dISRMrc/0pA3hQOPnnBrHSUSV19pD3tYC5kMcUxc7FqsQO7bS7WgWVXs+QECW2Q==
+
+"@tarojs/utils@^2.2.10":
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/@tarojs/utils/-/utils-2.2.10.tgz#ddf82a77aeccfc315c2fb78b3d1c079860aed350"
+  integrity sha512-5Y96pcSqqOYS/C1OlqtjzmTpD44n2AxobyKHpvVapqKdhnHbxkUVm+biqbHhfNqwr056KPviPQ4WMDjU33X7PA==
 
 "@tarojs/webpack-runner@1.3.18":
   version "1.3.18"
@@ -2569,7 +2574,7 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.8, debug@^2.6.
   dependencies:
     ms "2.0.0"
 
-debug@^3.0.0, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
+debug@^3.1.0, debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
   version "3.2.6"
   resolved "https://registry.npm.taobao.org/debug/download/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha1-6D0X3hbYp++3cX7b5fsQE17uYps=
@@ -3187,9 +3192,9 @@ etag@~1.8.1:
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
 eventemitter3@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npm.taobao.org/eventemitter3/download/eventemitter3-4.0.0.tgz#d65176163887ee59f386d64c82610b696a4a74eb"
-  integrity sha1-1lF2FjiH7lnzhtZMgmELaWpKdOs=
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
+  integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
 
 events@^3.0.0:
   version "3.0.0"
@@ -3488,11 +3493,9 @@ flush-write-stream@^1.0.0:
     readable-stream "^2.3.6"
 
 follow-redirects@^1.0.0:
-  version "1.9.0"
-  resolved "https://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.9.0.tgz#8d5bcdc65b7108fe1508649c79c12d732dcedb4f"
-  integrity sha1-jVvNxltxCP4VCGScecEtcy3O208=
-  dependencies:
-    debug "^3.0.0"
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.3.tgz#e5598ad50174c1bc4e872301e82ac2cd97f90267"
+  integrity sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==
 
 for-in@^0.1.3:
   version "0.1.8"
@@ -3996,9 +3999,9 @@ http-proxy-middleware@~0.18.0:
     micromatch "^3.1.9"
 
 http-proxy@^1.16.2:
-  version "1.18.0"
-  resolved "https://registry.npm.taobao.org/http-proxy/download/http-proxy-1.18.0.tgz?cache=0&sync_timestamp=1568770934756&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhttp-proxy%2Fdownload%2Fhttp-proxy-1.18.0.tgz#dbe55f63e75a347db7f3d99974f2692a314a6a3a"
-  integrity sha1-2+VfY+daNH2389mZdPJpKjFKajo=
+  version "1.18.1"
+  resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.18.1.tgz#401541f0534884bbf95260334e72f88ee3976549"
+  integrity sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==
   dependencies:
     eventemitter3 "^4.0.0"
     follow-redirects "^1.0.0"
@@ -6644,7 +6647,7 @@ require-uncached@^1.0.3:
 
 requires-port@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.npm.taobao.org/requires-port/download/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+  resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
 resolve-cwd@^2.0.0:
