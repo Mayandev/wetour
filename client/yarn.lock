@@ -245,13 +245,13 @@
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
-"@tarojs/taro-weapp@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/@tarojs/taro-weapp/download/@tarojs/taro-weapp-2.1.0.tgz?cache=0&sync_timestamp=1585556967981&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Ftaro-weapp%2Fdownload%2F%40tarojs%2Ftaro-weapp-2.1.0.tgz#3ebb4a24d33cd6d0e8805cc7471227f846f33170"
-  integrity sha1-PrtKJNM81tDogFzHRxIn+EbzMXA=
+"@tarojs/taro-weapp@^2.2.10":
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-weapp/-/taro-weapp-2.2.10.tgz#4eea6bac5e6d3e0aedf39f480a40aecf5db35304"
+  integrity sha512-SPteyZmIYX+K9m7MSgpIT84tvo6SoEd68FoEBX03diHktWS0/GShx1ORx4xMsJLM9uw6rjNoIynpLIZVf077Ig==
   dependencies:
-    "@tarojs/taro" "2.1.0"
-    "@tarojs/utils" "2.1.0"
+    "@tarojs/taro" "^2.2.10"
+    "@tarojs/utils" "^2.2.10"
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
@@ -262,22 +262,27 @@
   dependencies:
     "@tarojs/utils" "1.3.18"
 
-"@tarojs/taro@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-2.1.0.tgz?cache=0&sync_timestamp=1585654507457&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Ftaro%2Fdownload%2F%40tarojs%2Ftaro-2.1.0.tgz#0e07d1a6298a46cb9f0c9d10c4d05be5b4ef8892"
-  integrity sha1-DgfRpimKRsufDJ0QxNBb5bTviJI=
+"@tarojs/taro@^2.2.10":
+  version "2.2.17"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro/-/taro-2.2.17.tgz#78a95dc4e91ab4e4580205464ae684f32b612fa4"
+  integrity sha512-Mw41xfoPFwFcePkGXAxkH7J+2yWEViLUeM5Y3MvEjmPi+MWLQK5eMf+YLXKEf2GJ8pxf7H9GYr0FLG7s8qowJw==
   dependencies:
-    "@tarojs/utils" "2.1.0"
+    "@tarojs/utils" "2.2.17"
 
 "@tarojs/utils@1.3.18":
   version "1.3.18"
   resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-1.3.18.tgz#094e61bd27839a699e766e546291508ba8dd742d"
   integrity sha1-CU5hvSeDmmmedm5UYpFQi6jddC0=
 
-"@tarojs/utils@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-2.1.0.tgz?cache=0&sync_timestamp=1585556909759&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Futils%2Fdownload%2F%40tarojs%2Futils-2.1.0.tgz#7e7527937f0b5a0d51a3bc82d4c8a2d73c01897b"
-  integrity sha1-fnUnk38LWg1Ro7yC1Mii1zwBiXs=
+"@tarojs/utils@2.2.17":
+  version "2.2.17"
+  resolved "https://registry.yarnpkg.com/@tarojs/utils/-/utils-2.2.17.tgz#d6e4b808e3d7f984e8e5671a33e6f02ad2042651"
+  integrity sha512-QMCcvicXKwEiF6+K5lwdF98dISRMrc/0pA3hQOPnnBrHSUSV19pD3tYC5kMcUxc7FqsQO7bS7WgWVXs+QECW2Q==
+
+"@tarojs/utils@^2.2.10":
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/@tarojs/utils/-/utils-2.2.10.tgz#ddf82a77aeccfc315c2fb78b3d1c079860aed350"
+  integrity sha512-5Y96pcSqqOYS/C1OlqtjzmTpD44n2AxobyKHpvVapqKdhnHbxkUVm+biqbHhfNqwr056KPviPQ4WMDjU33X7PA==
 
 "@tarojs/webpack-runner@1.3.18":
   version "1.3.18"
@@ -8198,9 +8203,9 @@ xtend@^4.0.0, xtend@~4.0.1:
   integrity sha1-u3J3n1+kZRhrH0OPZ0+jR/2121Q=
 
 y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.npm.taobao.org/y18n/download/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
-  integrity sha1-bRX7qITAhnnA136I53WegR4H+kE=
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.2.tgz#85c901bd6470ce71fc4bb723ad209b70f7f28696"
+  integrity sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ==
 
 "y18n@^3.2.1 || ^4.0.0", y18n@^4.0.0:
   version "4.0.0"
