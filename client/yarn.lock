@@ -245,13 +245,13 @@
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
-"@tarojs/taro-weapp@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/@tarojs/taro-weapp/download/@tarojs/taro-weapp-2.1.0.tgz?cache=0&sync_timestamp=1585556967981&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Ftaro-weapp%2Fdownload%2F%40tarojs%2Ftaro-weapp-2.1.0.tgz#3ebb4a24d33cd6d0e8805cc7471227f846f33170"
-  integrity sha1-PrtKJNM81tDogFzHRxIn+EbzMXA=
+"@tarojs/taro-weapp@^2.2.10":
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-weapp/-/taro-weapp-2.2.10.tgz#4eea6bac5e6d3e0aedf39f480a40aecf5db35304"
+  integrity sha512-SPteyZmIYX+K9m7MSgpIT84tvo6SoEd68FoEBX03diHktWS0/GShx1ORx4xMsJLM9uw6rjNoIynpLIZVf077Ig==
   dependencies:
-    "@tarojs/taro" "2.1.0"
-    "@tarojs/utils" "2.1.0"
+    "@tarojs/taro" "^2.2.10"
+    "@tarojs/utils" "^2.2.10"
     lodash "^4.17.10"
     prop-types "^15.6.1"
 
@@ -262,22 +262,27 @@
   dependencies:
     "@tarojs/utils" "1.3.18"
 
-"@tarojs/taro@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-2.1.0.tgz?cache=0&sync_timestamp=1585654507457&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Ftaro%2Fdownload%2F%40tarojs%2Ftaro-2.1.0.tgz#0e07d1a6298a46cb9f0c9d10c4d05be5b4ef8892"
-  integrity sha1-DgfRpimKRsufDJ0QxNBb5bTviJI=
+"@tarojs/taro@^2.2.10":
+  version "2.2.19"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro/-/taro-2.2.19.tgz#4ba0b068fef8485b104e856d3d5e058b0700c041"
+  integrity sha512-6fYGgdObitLECGv+3eKsYaD4iMmuZ+CzGAEuj0IYR7+HRz+0v7PGkovf3F+hHev8xljluCOJWHRzqA3aEoCqlg==
   dependencies:
-    "@tarojs/utils" "2.1.0"
+    "@tarojs/utils" "2.2.19"
 
 "@tarojs/utils@1.3.18":
   version "1.3.18"
   resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-1.3.18.tgz#094e61bd27839a699e766e546291508ba8dd742d"
   integrity sha1-CU5hvSeDmmmedm5UYpFQi6jddC0=
 
-"@tarojs/utils@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-2.1.0.tgz?cache=0&sync_timestamp=1585556909759&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Futils%2Fdownload%2F%40tarojs%2Futils-2.1.0.tgz#7e7527937f0b5a0d51a3bc82d4c8a2d73c01897b"
-  integrity sha1-fnUnk38LWg1Ro7yC1Mii1zwBiXs=
+"@tarojs/utils@2.2.19":
+  version "2.2.19"
+  resolved "https://registry.yarnpkg.com/@tarojs/utils/-/utils-2.2.19.tgz#738c27885bb48d6073538a92a316572b8920118e"
+  integrity sha512-KA22Hu/YJ5Hd9L+DOS8kGM66Aqf3VREA3lzAKMTCaOnW8fV0ZDGn706jr+/ZLAjhqU4i9MbeTQHfBI614jVuXg==
+
+"@tarojs/utils@^2.2.10":
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/@tarojs/utils/-/utils-2.2.10.tgz#ddf82a77aeccfc315c2fb78b3d1c079860aed350"
+  integrity sha512-5Y96pcSqqOYS/C1OlqtjzmTpD44n2AxobyKHpvVapqKdhnHbxkUVm+biqbHhfNqwr056KPviPQ4WMDjU33X7PA==
 
 "@tarojs/webpack-runner@1.3.18":
   version "1.3.18"
@@ -5173,15 +5178,10 @@ minimatch@^3.0.2, minimatch@^3.0.4, minimatch@~3.0.2:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimist@0.0.8:
-  version "0.0.8"
-  resolved "https://registry.npm.taobao.org/minimist/download/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
-  integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
-
-minimist@^1.1.3, minimist@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npm.taobao.org/minimist/download/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
-  integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
+minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.6:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
+  integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
 minipass@^2.6.0, minipass@^2.8.6, minipass@^2.9.0:
   version "2.9.0"
@@ -5247,11 +5247,11 @@ mixin-object@^2.0.1:
     is-extendable "^0.1.1"
 
 mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
-  version "0.5.1"
-  resolved "https://registry.npm.taobao.org/mkdirp/download/mkdirp-0.5.1.tgz?cache=0&sync_timestamp=1569522001726&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmkdirp%2Fdownload%2Fmkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
-  integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.6.tgz#7def03d2432dcae4ba1d611445c48396062255f6"
+  integrity sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==
   dependencies:
-    minimist "0.0.8"
+    minimist "^1.2.6"
 
 mobile-detect@^1.4.2:
   version "1.4.4"
